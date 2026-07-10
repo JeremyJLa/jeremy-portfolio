@@ -63,13 +63,21 @@ body {
   animation-delay: 4.5s;
 }
 
+/* Projected content — appears once the crossfade (4.5s + 2.5s) has fully landed */
+.hero-projected-content {
+  opacity: 0;
+  animation: led-on 1s ease-out forwards;
+  animation-delay: 7.2s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-welcome-text {
     animation: none;
     opacity: 0;
   }
   .hero-dark-crossfade,
-  .hero-led {
+  .hero-led,
+  .hero-projected-content {
     animation: none;
     opacity: 1;
   }
