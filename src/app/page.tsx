@@ -53,12 +53,16 @@ export default function Home() {
         className="hero-projected-content pointer-events-none absolute flex flex-col items-center justify-center gap-6 px-[3%] text-center"
         style={{ left: "32%", right: "26%", top: "10%", bottom: "48%" }}
       >
-        <p className="max-w-[34ch] font-sans text-[1.25vw] leading-[1.65] tracking-tight text-[#2a2420]">
-          I am passionate about improving digital products so people can
-          interact with them naturally and intuitively. I also strive to
-          create meaningful and lasting connections through UI and visual
-          design.
-        </p>
+        <div className="max-w-[30ch]">
+          <p className="font-sans text-[2.2vw] font-medium leading-[1.2] tracking-[-0.01em] text-[#211c18]">
+            I am passionate about improving digital products so people can
+            interact with them naturally and intuitively.
+          </p>
+          <p className="mt-4 font-sans text-[1.25vw] leading-[1.4] tracking-tight text-[#8a7a68]">
+            I also strive to create meaningful and lasting connections
+            through UI and visual design.
+          </p>
+        </div>
         <p className="text-[0.8vw] font-medium uppercase tracking-[0.18em] text-[#8a7a68]">
           Take a look at my case studies
         </p>
