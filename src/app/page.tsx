@@ -1,6 +1,19 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
-export default function Home() {
+function SimpleHomepage() {
+  return (
+    <div className="flex flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <h1 className="text-4xl font-semibold tracking-tight text-red-600">
+        My Portfolio
+      </h1>
+    </div>
+  );
+}
+
+function ProjectionConcept() {
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-black">
       {/* Base layer: room lit, no beam */}
@@ -75,5 +88,24 @@ export default function Home() {
         Preview only — Stage 4 sequence prototype, not the final production build
       </p>
     </div>
+  );
+}
+
+export default function Home() {
+  // Dev-only toggle — NOT part of the site design. Defaults to the simple
+  // version; flip on to preview "The Projection" concept work.
+  const [showProjection, setShowProjection] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setShowProjection((v) => !v)}
+        className="fixed top-2 left-2 z-50 rounded border border-gray-400 bg-white px-3 py-1.5 font-mono text-xs text-black shadow-md"
+      >
+        {showProjection ? "Projection: ON" : "Projection: OFF"} — click to
+        toggle
+      </button>
+      {showProjection ? <ProjectionConcept /> : <SimpleHomepage />}
+    </>
   );
 }
