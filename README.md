@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jeremy Laycock — Portfolio
+
+**Status:** early design phase. No content, information architecture, or visual design has been finalized yet. See [`docs/`](./docs) for project documentation, starting with [`docs/project-vision.md`](./docs/project-vision.md) and [`docs/current-focus.md`](./docs/current-focus.md) for the current state.
+
+Built with [Next.js](https://nextjs.org) (bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app)).
 
 ## Getting Started
 

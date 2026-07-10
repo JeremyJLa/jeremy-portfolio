@@ -24,3 +24,53 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* The Projection — hero preview sequence (Stage 4 prototype, not final Stage 5 production build) */
+
+@keyframes welcome-text {
+  0% { opacity: 0; transform: translateY(8px); }
+  15% { opacity: 1; transform: translateY(0); }
+  55% { opacity: 1; transform: translateY(0); }
+  75% { opacity: 0; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(0); }
+}
+
+@keyframes dark-crossfade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes led-on {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.hero-welcome-text {
+  animation: welcome-text 6s ease-in-out forwards;
+}
+
+/* Crossfade to the real dark-room photo (projector, rays, and rectangle are baked into that image) */
+.hero-dark-crossfade {
+  opacity: 0;
+  animation: dark-crossfade 2.5s ease-in-out forwards;
+  animation-delay: 4.5s;
+}
+
+/* LED starts at the same moment the crossfade begins, so it's visibly on ~2s before the dark photo (and its beam) reaches full opacity */
+.hero-led {
+  opacity: 0;
+  animation: led-on 0.4s ease-out forwards;
+  animation-delay: 4.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-welcome-text {
+    animation: none;
+    opacity: 0;
+  }
+  .hero-dark-crossfade,
+  .hero-led {
+    animation: none;
+    opacity: 1;
+  }
+}
