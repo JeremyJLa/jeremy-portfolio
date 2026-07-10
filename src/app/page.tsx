@@ -4,12 +4,14 @@ import { useState } from "react";
 import Image from "next/image";
 
 function SimpleHomepage() {
+  // The actual Stage 1 wireframe artifact, served as-is — kept faithful to
+  // what was approved rather than hand-converted into JSX.
   return (
-    <div className="flex flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <h1 className="text-4xl font-semibold tracking-tight text-red-600">
-        My Portfolio
-      </h1>
-    </div>
+    <iframe
+      src="/wireframe.html"
+      title="Homepage Wireframe — Stage 1"
+      className="h-screen w-screen flex-1 border-0"
+    />
   );
 }
 

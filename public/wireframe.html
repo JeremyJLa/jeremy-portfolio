@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Homepage Wireframe — Stage 1</title>
+<style>
+  :root {
+    --bg: #F5F6F8;
+    --surface: #FFFFFF;
+    --surface-alt: #ECEEF1;
+    --border: #D3D7DD;
+    --border-strong: #B7BCC4;
+    --placeholder: #C9CDD3;
+    --placeholder-image: #9AA1AC;
+    --text-primary: #23262B;
+    --text-secondary: #6A7079;
+    --text-tertiary: #9096A0;
+    --accent-neutral: #4B5563;
+    --badge-border: #8A8F98;
+    --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171B;
+      --surface: #1D2025;
+      --surface-alt: #262A31;
+      --border: #33383F;
+      --border-strong: #454B54;
+      --placeholder: #3A3F47;
+      --placeholder-image: #4B515A;
+      --text-primary: #E7E9EC;
+      --text-secondary: #9BA1AB;
+      --text-tertiary: #6E7480;
+      --accent-neutral: #A8AEB8;
+      --badge-border: #6E7480;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15171B; --surface: #1D2025; --surface-alt: #262A31;
+    --border: #33383F; --border-strong: #454B54;
+    --placeholder: #3A3F47; --placeholder-image: #4B515A;
+    --text-primary: #E7E9EC; --text-secondary: #9BA1AB; --text-tertiary: #6E7480;
+    --accent-neutral: #A8AEB8; --badge-border: #6E7480;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --bg: #F5F6F8; --surface: #FFFFFF; --surface-alt: #ECEEF1;
+    --border: #D3D7DD; --border-strong: #B7BCC4;
+    --placeholder: #C9CDD3; --placeholder-image: #9AA1AC;
+    --text-primary: #23262B; --text-secondary: #6A7079; --text-tertiary: #9096A0;
+    --accent-neutral: #4B5563; --badge-border: #8A8F98;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    padding: 40px 24px 96px;
+  }
+
+  .page-head {
+    max-width: 760px;
+    margin: 0 auto 40px;
+  }
+  .page-head h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .page-head p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin: 0 0 20px;
+    max-width: 62ch;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; }
+  .legend-swatch { width: 18px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+  .legend-swatch.text { background: var(--placeholder); }
+  .legend-swatch.image { background: var(--placeholder-image); }
+  .legend-swatch.dashed { background: transparent; border: 1.5px dashed var(--border-strong); }
+
+  .zone {
+    max-width: 1280px;
+    margin: 0 auto 64px;
+  }
+  .zone-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .zone-label .dim {
+    color: var(--text-tertiary);
+    font-size: 11px;
+  }
+
+  .frame-scroll {
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .frame {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .frame-chrome {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-alt);
+  }
+  .frame-chrome span {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--border-strong);
+  }
+
+  .frame--desktop { width: 1280px; }
+  .frame--mobile { width: 390px; }
+
+  .rail-section {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+  }
+  .frame--mobile .rail-section { grid-template-columns: 26px 1fr; }
+
+  .rail {
+    border-right: 1px dashed var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 18px;
+  }
+  .rail-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+  }
+
+  .wf-section {
+    padding: 24px 28px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .frame--mobile .wf-section { padding: 16px 16px; }
+  .wf-section:last-child { border-bottom: none; }
+  .wf-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .frame--mobile .wf-section-title { font-size: 11px; margin-bottom: 10px; }
+
+  .bar {
+    background: var(--placeholder);
+    border-radius: 4px;
+    height: 14px;
+  }
+  .bar.thick { height: 22px; }
+  .bar.thin { height: 9px; }
+
+  .imgblock {
+    background: var(--placeholder-image);
+    border-radius: 6px;
+  }
+
+  /* Nav */
+  .nav-row { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { width: 90px; height: 16px; }
+  .nav-links { display: flex; gap: 22px; }
+  .nav-links .bar { width: 56px; }
+  .frame--mobile .nav-links { display: none; }
+  .nav-burger { display: none; }
+  .frame--mobile .nav-burger {
+    display: block; width: 22px; height: 16px;
+    position: relative;
+  }
+  .nav-burger .bar { position: absolute; width: 100%; height: 2px; }
+  .nav-burger .bar:nth-child(1) { top: 0; }
+  .nav-burger .bar:nth-child(2) { top: 7px; }
+  .nav-burger .bar:nth-child(3) { top: 14px; }
+
+  /* Hero */
+  .hero { padding: 30px 0 10px; max-width: 640px; }
+  .frame--mobile .hero { padding: 14px 0 4px; max-width: 100%; }
+  .hero .bar.thick { width: 92%; margin-bottom: 10px; }
+  .hero .bar.thick:nth-of-type(2) { width: 74%; margin-bottom: 22px; }
+  .hero .bar.thin { width: 58%; }
+  .frame--mobile .hero .bar.thick { width: 100%; }
+  .frame--mobile .hero .bar.thick:nth-of-type(2) { width: 88%; }
+
+  /* Logo strip */
+  .logo-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .frame--mobile .logo-row { gap: 16px; }
+  .logo-mark {
+    width: 74px; height: 22px;
+    background: var(--placeholder);
+    border-radius: 3px;
+    opacity: 0.7;
+  }
+  .frame--mobile .logo-mark { width: 56px; height: 18px; }
+
+  /* Flagship */
+  .flagship-item {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 26px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+  }
+  .flagship-item:first-of-type { border-top: none; padding-top: 4px; }
+  .frame--mobile .flagship-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 0;
+  }
+  .flagship-item .imgblock { height: 150px; }
+  .frame--mobile .flagship-item .imgblock { height: 130px; }
+  .flagship-meta {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+  }
+  .order-chip {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--surface);
+    background: var(--accent-neutral);
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .flagship-name {
+    font-size: 13px; font-weight: 600; color: var(--text-primary);
+  }
+  .flagship-year {
+    font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary);
+  }
+  .flagship-item .bar.thick { width: 88%; margin-bottom: 8px; }
+  .flagship-item .bar.thin { width: 46%; }
+
+  /* AI band */
+  .ai-band {
+    margin: 4px -28px -24px;
+    padding: 34px 28px;
+    background: var(--surface-alt);
+    border-top: 1px dashed var(--border);
+    text-align: center;
+  }
+  .frame--mobile .ai-band { margin: 4px -16px -16px; padding: 24px 16px; }
+  .ai-band .bar { margin: 0 auto; }
+  .ai-band .bar.thick { width: 44%; margin-bottom: 10px; }
+  .frame--mobile .ai-band .bar.thick { width: 78%; }
+  .ai-band .bar.thin { width: 30%; }
+  .frame--mobile .ai-band .bar.thin { width: 60%; }
+
+  /* More work */
+  .more-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .frame--mobile .more-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .more-item .imgblock { height: 74px; margin-bottom: 8px; }
+  .frame--mobile .more-item .imgblock { height: 58px; }
+  .more-item .bar.thin { width: 70%; }
+  .more-item { position: relative; }
+  .nda-badge {
+    position: absolute;
+    top: 6px; left: 6px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+    background: var(--surface);
+    border: 1.5px dashed var(--badge-border);
+    border-radius: 3px;
+    padding: 1px 5px;
+  }
+
+  /* Brand teaser */
+  .brand-item {
+    display: flex; align-items: center; gap: 16px;
+    padding-top: 6px;
+  }
+  .brand-item .imgblock { width: 96px; height: 64px; flex-shrink: 0; }
+  .frame--mobile .brand-item .imgblock { width: 72px; height: 48px; }
+  .brand-item .bar.thin { width: 120px; margin-bottom: 6px; }
+  .brand-item .bar.thin:last-child { width: 80px; }
+
+  /* Footer */
+  .footer-row { display: flex; gap: 28px; justify-content: center; padding: 6px 0; }
+  .frame--mobile .footer-row { gap: 16px; flex-wrap: wrap; }
+  .footer-row .bar { width: 84px; }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <h1>Homepage Wireframe — Stage 1</h1>
+  <p>Structural review only: layout, hierarchy, and content slots. No real copy, color, or imagery — see <code>docs/homepage-wireframe.md</code> for the section-by-section rationale.</p>
+  <div class="legend">
+    <div class="legend-item"><span class="legend-swatch text"></span> text placeholder</div>
+    <div class="legend-item"><span class="legend-swatch image"></span> image placeholder</div>
+    <div class="legend-item"><span class="legend-swatch dashed"></span> section boundary (structural, not a real divider)</div>
+    <div class="legend-item"><span class="order-chip" style="position:static; display:inline-flex;">1</span> curated order — meaningful sequence</div>
+  </div>
+</div>
+
+<!-- ============ DESKTOP ============ -->
+<div class="zone">
+  <div class="zone-label">Desktop <span class="dim">~1280px</span></div>
+  <div class="frame-scroll">
+    <div class="frame frame--desktop">
+      <div class="frame-chrome"><span></span><span></span><span></span></div>
+      <div class="rail-section">
+        <div class="rail">
+          <div style="display:flex; flex-direction:column; gap: 0;">
+            <div class="rail-num" style="height:78px;">1</div>
+            <div class="rail-num" style="height:158px;">2</div>
+            <div class="rail-num" style="height:70px;">3</div>
+            <div class="rail-num" style="height:660px;">4</div>
+            <div class="rail-num" style="height:150px;">5</div>
+            <div class="rail-num" style="height:260px;">6</div>
+            <div class="rail-num" style="height:120px;">7</div>
+            <div class="rail-num">8</div>
+          </div>
+        </div>
+        <div>
+          <div class="wf-section">
+            <div class="wf-section-title">1 · Nav</div>
+            <div class="nav-row">
+              <div class="bar nav-logo"></div>
+              <div class="nav-links"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">2 · Hero</div>
+            <div class="hero">
+              <div class="bar thick"></div>
+              <div class="bar thick"></div>
+              <div class="bar thin"></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">3 · Client / company logos</div>
+            <div class="logo-row">
+              <div class="logo-mark"></div>
+              <div class="logo-mark"></div>
+              <div class="logo-mark"></div>
+              <div class="logo-mark"></div>
+              <div class="logo-mark"></div>
+              <div class="logo-mark"></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">4 · Flagship case studies (curated order)</div>
+
+            <div class="flagship-item">
+              <div class="imgblock"></div>
+              <div>
+                <div class="flagship-meta"><span class="order-chip">1</span><span class="flagship-name">ACEM CPD Portal</span><span class="flagship-year">2023</span></div>
+                <div class="bar thick"></div>
+                <div class="bar thin"></div>
+              </div>
+            </div>
+            <div class="flagship-item">
+              <div class="imgblock"></div>
+              <div>
+                <div class="flagship-meta"><span class="order-chip">2</span><span class="flagship-name">Restore for Retail</span><span class="flagship-year">2024</span></div>
+                <div class="bar thick"></div>
+                <div class="bar thin"></div>
+              </div>
+            </div>
+            <div class="flagship-item">
+              <div class="imgblock"></div>
+              <div>
+                <div class="flagship-meta"><span class="order-chip">3</span><span class="flagship-name">Goodwork</span><span class="flagship-year">2021</span></div>
+                <div class="bar thick"></div>
+                <div class="bar thin"></div>
+              </div>
+            </div>
+            <div class="flagship-item">
+              <div class="imgblock"></div>
+              <div>
+                <div class="flagship-meta"><span class="order-chip">4</span><span class="flagship-name">MYER</span><span class="flagship-year">2020</span></div>
+                <div class="bar thick"></div>
+                <div class="bar thin"></div>
+              </div>
+            </div>
+            <div class="flagship-item">
+              <div class="imgblock"></div>
+              <div>
+                <div class="flagship-meta"><span class="order-chip">5</span><span class="flagship-name">VicSuper</span><span class="flagship-year">2018</span></div>
+                <div class="bar thick"></div>
+                <div class="bar thin"></div>
+              </div>
+            </div>
+
+            <div class="ai-band">
+              <div class="wf-section-title" style="margin-bottom:14px;">5 · AI-in-Design teaser — visually distinct, not a project card</div>
+              <div class="bar thick"></div>
+              <div class="bar thin"></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">6 · "More work" (lower visual weight)</div>
+            <div class="more-grid">
+              <div class="more-item"><div class="imgblock"></div><div class="bar thin"></div></div>
+              <div class="more-item"><div class="imgblock"></div><div class="bar thin"></div></div>
+              <div class="more-item"><div class="imgblock"></div><div class="bar thin"></div></div>
+              <div class="more-item"><div class="imgblock"></div><div class="bar thin"></div></div>
+              <div class="more-item"><div class="imgblock"></div><div class="bar thin"></div></div>
+              <div class="more-item"><span class="nda-badge">NDA</span><div class="imgblock"></div><div class="bar thin"></div></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">7 · Brand &amp; Identity teaser (separated — different skill set)</div>
+            <div class="brand-item">
+              <div class="imgblock"></div>
+              <div><div class="bar thin"></div><div class="bar thin"></div></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">8 · Footer</div>
+            <div class="footer-row"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MOBILE ============ -->
+<div class="zone">
+  <div class="zone-label">Mobile <span class="dim">~390px</span></div>
+  <div class="frame-scroll">
+    <div class="frame frame--mobile">
+      <div class="frame-chrome"><span></span><span></span><span></span></div>
+      <div class="rail-section">
+        <div class="rail">
+          <div style="display:flex; flex-direction:column; gap: 0;">
+            <div class="rail-num" style="height:54px;">1</div>
+            <div class="rail-num" style="height:110px;">2</div>
+            <div class="rail-num" style="height:90px;">3</div>
+            <div class="rail-num" style="height:1180px;">4</div>
+            <div class="rail-num" style="height:220px;">5</div>
+            <div class="rail-num" style="height:190px;">6</div>
+            <div class="rail-num" style="height:110px;">7</div>
+            <div class="rail-num">8</div>
+          </div>
+        </div>
+        <div>
+          <div class="wf-section">
+            <div class="wf-section-title">1 · Nav</div>
+            <div class="nav-row">
+              <div class="bar nav-logo" style="width:64px;"></div>
+              <div class="nav-burger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">2 · Hero</div>
+            <div class="hero">
+              <div class="bar thick"></div>
+              <div class="bar thick"></div>
+              <div class="bar thin"></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">3 · Client / company logos</div>
+            <div class="logo-row">
+              <div class="logo-mark"></div>
+              <div class="logo-mark"></div>
+              <div class="logo-mark"></div>
+              <div class="logo-mark"></div>
+              <div class="logo-mark"></div>
+              <div class="logo-mark"></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">4 · Flagship case studies</div>
+
+            <div class="flagship-item">
+              <div class="imgblock"></div>
+              <div>
+                <div class="flagship-meta"><span class="order-chip">1</span><span class="flagship-name">ACEM CPD Portal</span><span class="flagship-year">2023</span></div>
+                <div class="bar thick"></div>
+                <div class="bar thin"></div>
+              </div>
+            </div>
+            <div class="flagship-item">
+              <div class="imgblock"></div>
+              <div>
+                <div class="flagship-meta"><span class="order-chip">2</span><span class="flagship-name">Restore for Retail</span><span class="flagship-year">2024</span></div>
+                <div class="bar thick"></div>
+                <div class="bar thin"></div>
+              </div>
+            </div>
+            <div class="flagship-item">
+              <div class="imgblock"></div>
+              <div>
+                <div class="flagship-meta"><span class="order-chip">3</span><span class="flagship-name">Goodwork</span><span class="flagship-year">2021</span></div>
+                <div class="bar thick"></div>
+                <div class="bar thin"></div>
+              </div>
+            </div>
+            <div class="flagship-item">
+              <div class="imgblock"></div>
+              <div>
+                <div class="flagship-meta"><span class="order-chip">4</span><span class="flagship-name">MYER</span><span class="flagship-year">2020</span></div>
+                <div class="bar thick"></div>
+                <div class="bar thin"></div>
+              </div>
+            </div>
+            <div class="flagship-item">
+              <div class="imgblock"></div>
+              <div>
+                <div class="flagship-meta"><span class="order-chip">5</span><span class="flagship-name">VicSuper</span><span class="flagship-year">2018</span></div>
+                <div class="bar thick"></div>
+                <div class="bar thin"></div>
+              </div>
+            </div>
+
+            <div class="ai-band">
+              <div class="wf-section-title" style="margin-bottom:10px;">5 · AI-in-Design teaser</div>
+              <div class="bar thick"></div>
+              <div class="bar thin"></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">6 · "More work"</div>
+            <div class="more-grid">
+              <div class="more-item"><div class="imgblock"></div><div class="bar thin"></div></div>
+              <div class="more-item"><div class="imgblock"></div><div class="bar thin"></div></div>
+              <div class="more-item"><div class="imgblock"></div><div class="bar thin"></div></div>
+              <div class="more-item"><div class="imgblock"></div><div class="bar thin"></div></div>
+              <div class="more-item"><div class="imgblock"></div><div class="bar thin"></div></div>
+              <div class="more-item"><span class="nda-badge">NDA</span><div class="imgblock"></div><div class="bar thin"></div></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">7 · Brand &amp; Identity teaser</div>
+            <div class="brand-item">
+              <div class="imgblock"></div>
+              <div><div class="bar thin"></div><div class="bar thin"></div></div>
+            </div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-title">8 · Footer</div>
+            <div class="footer-row"><div class="bar"></div><div class="bar"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
