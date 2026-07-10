@@ -18,13 +18,37 @@ Evaluating for a **Senior IC role, or a role where the designer leads design in 
 ## Per-Page Content Requirements
 
 ### Home (`/`)
-- Hero: outcomes-first positioning statement (not a job-title sentence) + the personal creative-origin story as a short subhead hook.
+- Hero: outcomes-first positioning statement (not a job-title sentence) + the personal creative-origin story as a short subhead hook. **Finalized 2026-07-10 — see Finalized Homepage Copy below.**
 - Client/company logo strip: ANZ, MYER, VicSuper, Goodwork, ACEM, Restore — logo marks only, no case-study links from here (that's what the flagship/secondary sections are for). Addresses a specific gap named in `homepage-strategy.md`'s audit: "zero social proof — no testimonials, no client logos." Kept quiet/compact by design — a 2-second trust signal, not competing content. OUA excluded (NDA). Logo assets themselves still need to be sourced — not blocking the wireframe, but blocking before real implementation.
-- 5 flagship case studies, hand-curated narrative order, each teased with a one-line **outcome**, not a title. Leadership/systems-thinking signal (Goodwork's design-system governance, ANZ's squad context) is woven into these case studies — not a separate homepage element.
-- AI-in-Design teaser: headline + one-line hook + link through to `/ai-in-design`. Its job is specifically to surface that page (currently buried in the live site's nav) — not a general "leadership" section; leadership signal is already covered by the case studies above.
-- "More work" section (lower visual weight): 5 secondary projects + OUA summary.
-- Footer CTA band: email, CV download, LinkedIn.
+- 5 flagship case studies, hand-curated narrative order, each teased with a one-line **outcome**, not a title. **Finalized 2026-07-10 — see Finalized Homepage Copy below.** Leadership/systems-thinking signal (Goodwork's design-system governance, ANZ's squad context) is woven into these case studies — not a separate homepage element.
+- AI-in-Design teaser: headline + one-line hook + link through to `/ai-in-design`. Its job is specifically to surface that page (currently buried in the live site's nav) — not a general "leadership" section; leadership signal is already covered by the case studies above. **Finalized 2026-07-10 — see Finalized Homepage Copy below.**
+- "More work" section (lower visual weight): 5 secondary projects + OUA summary. Just project names — no dedicated copy, per the section's own lower-visual-weight purpose.
+- Footer CTA band: email, CV download, LinkedIn. Unchanged from current site.
 - **Must satisfy the Recruiter in the first 30 seconds** — this page is written for the fastest, least patient persona; deeper personas self-select into case studies from here.
+
+## Finalized Homepage Copy (Stage 2, 2026-07-10)
+
+Real copy — not illustrative. Every number here traces to a metric already documented in `docs/homepage-strategy.md` and `docs/decisions.md`; nothing invented. Rationale for the hero option chosen is logged in `docs/decisions.md`.
+
+**Hero**
+> I turn ambiguous problems into products people actually use — cutting process steps by 30%, lifting feature adoption to 75%, and halving support ticket time along the way.
+>
+> *From murals and skate decks to a decade of enterprise UX.*
+
+**Flagship case-study teasers** (hand-curated order, per `docs/decisions.md`):
+
+1. **ACEM CPD Portal (2023):** Cut a 100+ requirement compliance backlog to a portal that reduced process steps by 30%.
+2. **Restore for Retail (2024):** Built the roadmap that got 75% of brands actively using it.
+3. **Goodwork (2021):** Led design and testing that grew active job-posters by 26%.
+4. **MYER (2020):** Redesigned a support flow that cut ticket-handling time in half.
+5. **VicSuper (2018):** Research-led redesign that lifted the app to a 4.4-star rating.
+
+**AI-in-Design teaser**
+> Designing with AI, not just talking about it.
+>
+> *Hands-on with tools like Claude Code, and thinking seriously about what AI actually changes for how we design.*
+
+Nav labels and "Contact me" used in the Projection prototype remain placeholder — real nav is Work · About · AI in Design per `docs/information-architecture.md`, untouched by this pass.
 
 ### Flagship case study (`/work/[slug]`, tier = flagship)
 - Leads with outcome/result, not chronological process (per the results-first pattern in `homepage-strategy.md`).
@@ -57,6 +81,7 @@ Evaluating for a **Senior IC role, or a role where the designer leads design in 
 
 ## Open Items
 
+- ~~Stage 2 homepage copy (hero, flagship teasers, AI-in-Design teaser)~~ **Done** — see Finalized Homepage Copy above and `docs/decisions.md`.
 - OUA summary copy — blocked on NDA scoping (see `docs/decisions.md`).
 - Flagship case-study rewrites (MYER, VicSuper) to foreground reasoning over the raw metric — flagged in `homepage-strategy.md` Next Steps, not started.
 - ~~Exact hand-curated ordering of the 5 flagship case studies~~ **Done** — see `docs/decisions.md`.
