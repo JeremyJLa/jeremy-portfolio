@@ -30,6 +30,8 @@ Evaluating for a **Senior IC role, or a role where the designer leads design in 
 
 Real copy — not illustrative. Revised same-day from the original numbers-led version (see `docs/decisions.md` for both versions and why) — this version leads with process, craft, and personality rather than impact percentages. The underlying facts are unchanged and still real; the framing is narrative rather than stat-led. Actual metrics still belong on the case-study pages themselves (see Flagship case study requirements below) — this is specifically about what the homepage leads with.
 
+**Status: temporarily not what's on screen.** Per `docs/decisions.md`, the wireframe currently shows the *old site's* verbatim copy instead, as a deliberate sequencing choice — real (if not final) text in place so design work has something to react to, without design being blocked on copy being re-litigated again. This section remains the actual content strategy; it is not superseded, just not currently displayed. Swap back in once design work catches up.
+
 **Hero**
 > Senior Product Designer
 
