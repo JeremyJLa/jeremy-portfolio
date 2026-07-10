@@ -26,24 +26,26 @@ Evaluating for a **Senior IC role, or a role where the designer leads design in 
 - Footer CTA band: email, CV download, LinkedIn. Unchanged from current site.
 - **Must satisfy the Recruiter in the first 30 seconds** — this page is written for the fastest, least patient persona; deeper personas self-select into case studies from here.
 
-## Finalized Homepage Copy (Stage 2, 2026-07-10)
+## Finalized Homepage Copy (Stage 2, revised 2026-07-10)
 
-Real copy — not illustrative. Every number here traces to a metric already documented in `docs/homepage-strategy.md` and `docs/decisions.md`; nothing invented. Rationale for the hero option chosen is logged in `docs/decisions.md`.
+Real copy — not illustrative. Revised same-day from the original numbers-led version (see `docs/decisions.md` for both versions and why) — this version leads with process, craft, and personality rather than impact percentages. The underlying facts are unchanged and still real; the framing is narrative rather than stat-led. Actual metrics still belong on the case-study pages themselves (see Flagship case study requirements below) — this is specifically about what the homepage leads with.
 
 **Hero**
-> I turn ambiguous problems into products people actually use — cutting process steps by 30%, lifting feature adoption to 75%, and halving support ticket time along the way.
->
-> *From murals and skate decks to a decade of enterprise UX.*
+> Senior Product Designer
 
-**Flagship case-study teasers** (hand-curated order, per `docs/decisions.md`):
+> I've spent a decade turning complicated, high-stakes problems — regulated compliance, healthcare, finance — into products people don't have to think twice about. It's the same instinct I started with painting murals and shaping skateboard decks: make something considered enough that it just works.
 
-1. **ACEM CPD Portal (2023):** Cut a 100+ requirement compliance backlog to a portal that reduced process steps by 30%.
-2. **Restore for Retail (2024):** Built the roadmap that got 75% of brands actively using it.
-3. **Goodwork (2021):** Led design and testing that grew active job-posters by 26%.
-4. **MYER (2020):** Redesigned a support flow that cut ticket-handling time in half.
-5. **VicSuper (2018):** Research-led redesign that lifted the app to a 4.4-star rating.
+(The role label above replaces the earlier separate subhead — one element doing the "clear title/level signal" job the Recruiter persona needs, per Principle 5 in `experience-principles.md`, rather than two elements both gesturing at personal background.)
 
-**AI-in-Design teaser**
+**Flagship case-study teasers** (hand-curated order, per `docs/decisions.md`) — reframed around the nature of the work, not led with a percentage:
+
+1. **ACEM CPD Portal (2023):** Redesigned how healthcare professionals complete mandatory training — turning a maze of compliance requirements into something people could actually follow.
+2. **Restore for Retail (2024):** Shaped the roadmap for a retail operations tool now used daily by brands across the country.
+3. **Goodwork (2021):** Led research and testing for a jobs platform, then built the design-system foundation that let the team scale it.
+4. **MYER (2020):** Rebuilt a customer support flow around how people actually ask for help, not how the org chart was structured.
+5. **VicSuper (2018):** Rebuilt a superannuation app from the ground up, grounded in some of the most rigorous research I've run.
+
+**AI-in-Design teaser** (unchanged — never stats-led)
 > Designing with AI, not just talking about it.
 >
 > *Hands-on with tools like Claude Code, and thinking seriously about what AI actually changes for how we design.*
